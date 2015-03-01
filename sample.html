@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8" />
+<meta name="keywords" content="打赏" />
+<meta name="description" content="打赏" />
+<title>打赏</title>
+</head>
+<body>
+	<script>
+		window.tctipConfig = {
+			//图片路径前缀，用来修订图片相对路径,默认为""
+			imagePrefix:  "",
+			//css路径前缀，用来修订css相对路径,默认为""
+			cssPrefix:	  "",
+			/**
+			静态文件相对路径。当staticPrefix存在的时候,
+			优先使用staticPrefix,此时imagePrefix和cssPrefix失效
+			**/
+			staticPrefix: "http://tctip.com",
+
+			/***
+			左侧分享按钮的id,使用的图片为 tab_id.png
+			这里为了展示效果，随机选择一张图片
+			**/
+			buttonImageId: Math.ceil(Math.random()*8) + 1,
+
+			/****
+			list规定打赏的方式，list有几个元素，代表有几种打赏方式,最多五种，用户传入的支付方式多于五种，多出部分将会被忽略
+			一个完整的list元素例子如下
+			'key'    :   {icon: "img/alipay.png", name:"支付宝", desc: "支付宝打赏", className: "", qrimg: "", account:""},
+
+			分别解释如下:
+
+			key:
+					为一个英文下标,用户可随意定义;key有六种默认值，分别为 alipay, tenpay, weixin, bitcoin,litecoin,dogecoin,当key为默认值
+					的时候，插件默认规定了icon, name,desc的默认值;
+
+			icon:	
+					左侧icon图标的url,可以传入相对路径，此时会根据imagePrefix或者staticPrefix进行路径修正。
+					如果传入绝对路径，则直接展示，不进行路径修正。
+					如果key是默认值，且用户没有传入icon,则使用系统自带icon。
+			name:	
+					支付方式的名称，用于左侧tab展示的说明。name可以使用系统默认值；如果没有系统默认值，则需要用户传入
+			desc:	
+					支付方式更纤细说明，用于二维码下方说明文字,建议不超过五个字。当desc为空的时候，系统使用默认值，如果没有默认值，则使用name字段
+
+			account:
+					支付方式账号,例如支付宝账号或者比特币地址等。用于生成二维码,并同时在二维码下方的desc之下以文字形式展示,方便打赏的人直接复制账号而非以二维码形式打赏; 
+					account没有系统默认值
+			qrimg:	
+					当用户没有支付方式账号的时候，可以直接传入二维码图片；比如用户可以上传微信面对面收钱的二维码图片到服务器，然后将图片的url作为qrimg字段传入。此时二维码下方只展示desc字段，不展示account. 
+					当用户同时传入qrimg和accounts时候，以qrimg为准。
+
+			className:
+					className可以为空，或者传入myR-on；当用户传入myR-on的时候，右侧二维码默认展示当前支付方式；否则默认展示第一种支付方式。
+		**/
+			list:{
+
+				/**使用系统默认支付方式，传入account**/
+				bitcoin: { account: "1PhQySHF1ZuoRwoZ8G4CDLEtE6fAnD3GJP"},
+				/**使用系统默认支付方式，传入的qrimg为支付宝收款二维码**/
+				alipay: { qrimg: "http://tctip.com/img/alipayqr.png"},
+				/**使用自定义支付方式，传入account,并默认展示**/
+				tenpay: { account: "342285717", className:"myR-on"},
+				/**使用系统默认支付方式，传入icon,name, desc, qrimg**/
+				weixin:{qrimg: "img/weixin.png", name: "微信", desc : "自定义微信", qrimg: "http://littlebtc.com/images/yeshen.png"},
+				/**使用自定义支付方式，传入icon,name,account**/
+				another:{icon: "img/litecoin.png", name: "莱特币", className: "", account: "LVCSBrv3ikzZWDtm9v8QPvDvLwn7dcsCEa", desc: "自定义莱特币"}
+			}
+		};
+	</script>
+	<script src="js/tctip.min.js"></script>
+	
+	<!-- 
+	或者引用下面两个js 
+	<script src="js/qrcode.js"></script>
+	<script src="js/tctip.js"></script>
+	-->
+</body>
+</html>
