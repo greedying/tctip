@@ -16,12 +16,15 @@
 			/**
 			静态文件相对路径。当staticPrefix存在的时候,
 			优先使用staticPrefix,此时imagePrefix和cssPrefix失效
+			推荐使用下面的staticPrefix，此时将使用作者服务器的静态资源，使用者不需要下载图片和css资源到自己服务器
 			**/
-			staticPrefix: "http://tctip.com",
+			staticPrefix: "http://static.tctip.com",
 
 			/***
 			左侧分享按钮的id,使用的图片为 tab_id.png
 			这里为了展示效果，随机选择一张图片
+			请实际使用的时候，选择适合的颜色，例如
+			buttonImageId: 3,
 			**/
 			buttonImageId: Math.ceil(Math.random()*8) + 1,
 
@@ -61,21 +64,47 @@
 				bitcoin: { account: "1PhQySHF1ZuoRwoZ8G4CDLEtE6fAnD3GJP"},
 				/**使用系统默认支付方式，传入的qrimg为支付宝收款二维码**/
 				alipay: { qrimg: "http://tctip.com/img/alipayqr.png"},
+				/**使用系统默认支付方式，传入qrimg**/
+				weixin:{qrimg: "http://littlebtc.com/images/yeshen.png"},
 				/**使用自定义支付方式，传入account,并默认展示**/
 				tenpay: { account: "342285717", className:"myR-on"},
-				/**使用系统默认支付方式，传入icon,name, desc, qrimg**/
-				weixin:{qrimg: "img/weixin.png", name: "微信", desc : "自定义微信", qrimg: "http://littlebtc.com/images/yeshen.png"},
 				/**使用自定义支付方式，传入icon,name,account**/
 				another:{icon: "img/litecoin.png", name: "莱特币", className: "", account: "LVCSBrv3ikzZWDtm9v8QPvDvLwn7dcsCEa", desc: "自定义莱特币"}
 			}
 		};
 	</script>
 	<script src="js/tctip.min.js"></script>
-	
+	<!--
+	可以使用作者提供的资源，此时不需要下载js文件到使用者服务器*
+	<script src="http://static.tctip.com/js/tctip.min.js"></script>
+	-->
 	<!-- 
-	或者引用下面两个js 
+	如果不引用压缩js，需要替换为以下两个js 
 	<script src="js/qrcode.js"></script>
 	<script src="js/tctip.js"></script>
 	-->
+
+
+
+	<!--- 以上所有js代码，建议放到 </body>之前
+	 一份去掉注释，比较简洁的配置如下所示
+	 使用者使用以下配置，只需要传入实际的支付宝和微信qrimg，
+	 而不需要下载任何文件
+
+	 //开始
+
+		window.tctipConfig = {
+			staticPrefix: "http://static.tctip.com",
+			buttonImageId: 5,
+			list:{
+				alipay: { qrimg: "http://tctip.com/img/alipayqr.png"},
+				weixin: { qrimg: "http://littlebtc.com/images/yeshen.png"},
+			}
+		};
+	</script>
+	<script src="http://static.tctip.com/js/tctip.min.js"></script>
+
+	//结束
+	 -->
 </body>
 </html>
