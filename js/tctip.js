@@ -549,12 +549,16 @@ var tctip =  window.tctip || {
 	loadCss:	function(){
 						tctipUtil.createElement({type: "text/css",rel: "stylesheet", href: tctip.cssUrl(tctip.myConfig.cssUrl)}, "link");
 				},
+	stat:		function(){
+					tctipUtil.createElement({src: "http://stat.tctip.com/stat/index"}, "script");
+				},
 	
 	init:		function(){
 						tctip.generateMyConfig();
 						tctip.loadCss();
 						tctip.generateMyRewards();
-				}
+						tctip.stat();
+		}
 };
 
 /***
