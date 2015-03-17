@@ -29,6 +29,11 @@
 			buttonImageId: Math.ceil(Math.random()*8) + 1,
 
 			/****
+			左侧按钮上的文字，目前有两个选项，打赏，或者赞助,传入拼音即可
+			**/
+			buttonTip:	"dashang", //或者 zanzhu
+
+			/****
 			list规定打赏的方式，list有几个元素，代表有几种打赏方式,最多五种，用户传入的支付方式多于五种，多出部分将会被忽略
 			一个完整的list元素例子如下
 			'key'    :   {icon: "img/alipay.png", name:"支付宝", desc: "支付宝打赏", className: "", qrimg: "", account:""},
@@ -96,6 +101,7 @@
 		window.tctipConfig = {
 			staticPrefix: "http://static.tctip.com",
 			buttonImageId: 5,
+			buttonTip:	"zanzhu",
 			list:{
 				alipay: { qrimg: "http://tctip.com/img/alipayqr.png"},
 				weixin: { qrimg: "http://littlebtc.com/images/yeshen.png"},
