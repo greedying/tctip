@@ -298,6 +298,7 @@ var tctip =  window.tctip || {
 		 */
 		staticPrefix	: "",
 		buttonImageId	: "3",
+		buttonTip		: "dashang",
 		cssUrl:	"css/myRewards.css"
 	},
 
@@ -354,7 +355,8 @@ var tctip =  window.tctip || {
 	 */
 	buttonImageUrl: function(){
 						var id = tctip.myConfig.buttonImageId;
-						return tctip.imageUrl("img/tab_" + id + ".png");
+						var tip = tctip.myConfig.buttonTip;
+						return tctip.imageUrl("img/" + tip + "/tab_" + id + ".png");
 				},
 
 	/***
@@ -405,7 +407,7 @@ var tctip =  window.tctip || {
 						},
 	generateLeftBtn:	function(){
 							this.myRewardsBtn = tctipUtil.createElement({className: "btn-myRewards", href: "javascript:;"}, 'a', this.myRewards);
-							tctipUtil.createElement({className: "png", src: tctip.buttonImageUrl(), alt: "打赏"}, 'img', this.myRewardsBtn);
+							tctipUtil.createElement({className: "png", src: tctip.buttonImageUrl()}, 'img', this.myRewardsBtn);
 	},
 
 	/***
