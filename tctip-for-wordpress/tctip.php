@@ -4,7 +4,7 @@
  * Plugin URI: github.com/greedying/tctip
  * Description: 此插件将在窗口右侧，显示一个侧边栏
  * Version: 1.0.0
- * Author: greedying
+ * Author: vincent
  * Author URI: http://tctip.com/
  * * License: GPL
  * */
@@ -62,6 +62,7 @@ function show_tctip_setting_page() {
 		<?php 
 	//本页接受post请求
 			update_option('buttonImageId', $_POST['buttonImageId']);
+			update_option('buttonTip', $_POST['buttonTip']);
 			update_option('alipayAccount', $_POST['alipayAccount']);
 			update_option('alipayQrimg', $_POST['alipayQrimg']);
 			update_option('weixinQrimg', $_POST['weixinQrimg']);
@@ -86,20 +87,31 @@ function show_tctip_setting_page() {
 				<ul>
 			<?php for($i=1; $i <=9; $i++):?>
 					<li style="float:left;">
-						<input type="radio" name="buttonImageId" value="<?php echo $i?>" <?php if(get_option('buttonImageId')==$i) echo 'checked'?>><img style="margin-right:50px;"src="http://static.tctip.com/img/tab_<?php echo $i?>.png">
+						<input type="radio" name="buttonImageId" value="<?php echo $i?>" <?php if(get_option('buttonImageId')==$i) echo 'checked'?>><img style="margin-right:50px;"src="http://static.tctip.com/img/zanzhu/tab_<?php echo $i?>.png">
 					</li>
 			<?php endfor;?>
 				</ul>
 			</div>  
-			
-			<h3>请选择一种或多种打赏方式</h3>
-			<p>其中支付宝您可以选择输入支付宝账号，或者输入支付宝收款二维码的图片链接</p>
-			<p>其他打赏方式请按照提示输入账号地址或者二维码图片链接</p>
 
+			<h3>请选择显示button字样(打赏 or 赞助)</h3>
+			<div style="height:100px">  
+				<ul>
+					<li style="float:left;">
+						<input type="radio" name="buttonTip" value="dashang" <?php if(get_option('buttonTip')=='dashang') echo 'checked'?>><img style="margin-right:50px;"src="http://static.tctip.com/img/dashang/tab_3.png">
+					</li>
+					<li style="float:left;">
+						<input type="radio" name="buttonTip" value="zanzhu" <?php if(get_option('buttonTip')=='zanzhu') echo 'checked'?>><img style="margin-right:50px;"src="http://static.tctip.com/img/zanzhu/tab_3.png">
+					</li>
+				</ul>
+			</div>  
 <style>
 	input[type=text]{width: 300px;}
 	label {display:inline-block; width:200px;}
 </style>
+			<h3>请选择一种或多种打赏方式</h3>
+			<p>其中支付宝您可以选择输入支付宝账号，或者输入支付宝收款二维码的图片链接</p>
+			<p>其他打赏方式请按照提示输入账号地址或者二维码图片链接</p>
+
 			<p> 
 				<label>输入支付宝账号：</label>
 				<input type="text" name="alipayAccount" id="alipayAccount" value="<?php echo get_option('alipayAccount')?>">
@@ -139,6 +151,11 @@ function tctip_init(){
 	$buttonImageId = get_option('buttonImageId');
 	if($buttonImageId){
 		$tctipConfig['buttonImageId'] = get_option('buttonImageId');
+	}
+
+	$buttonTip = get_option('buttonTip');
+	if($buttonTip){
+		$tctipConfig['buttonTip'] = get_option('buttonTip');
 	}
 
 	$list = array();
