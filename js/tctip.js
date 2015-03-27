@@ -556,20 +556,15 @@ var tctip =  window.tctip || {
 				},
 	
 	init:		function(){
+					if(!document.body){
+						/**判断body是否存在，如果不存在则等待完成**/
+						setTimeout(tctip.init,0);
+					}else{
 						tctip.generateMyConfig();
 						tctip.loadCss();
 						tctip.generateMyRewards();
 						tctip.stat();
+					}
 		}
 };
-
-/***
- * 如果是chrome user js插件，则直接运行
- * 否则在onload内执行
- * user js内有时候不执行onload，怀疑是user js执行时候，onload已经执行完毕；待证实
- */
-if( ! tctipConfig.runOnLoad){
-	tctip.init();
-}else{
-	tctipUtil.addLoadEvent(tctip.init);
-}
+tctip.init();
