@@ -8,7 +8,7 @@
 .myRewards-main{ width:240px; height:332px; font:12px/1.5 "microsoft yahei",tahoma,arial,sans-serif;; color:#000; background-color:#fff; border:1px solid #dbdbdb; border-right:none;}
 .btn-myRewards{ position:absolute; left:0; top:50%; margin-top:-46px; width:34px; height:93px;}
 .myR-h,.myR-bot{ margin:0; height:26px; line-height:26px; background-color:#e7e7e7;}
-.myRewards-main .myR-h{ padding:0 0 0 6px; font-size:14px; font-weight:normal;}
+.myRewards-main .myR-h{ padding:0 0 0 6px; font-size:14px; font-weight:normal; background-image:none;}
 .myRewards-main .myR-bot{ padding-right:6px; font-size:12px; text-align:right;}
 .myR-bot a:hover{ text-decoration:underline;}
 .myRewardsbox{ font-size:0; background-color:#eeeeee; width:240px;}
