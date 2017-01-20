@@ -10,6 +10,13 @@ createElement	: function(param, tagName, target) {
 				   }
 				   return (target || document.body).appendChild(element);
 			   },
+createElementHtml:function(param, tagName, target) {
+				   var element = document.createElement(tagName || "div");
+				   for (var key in param) {
+					   key == "style" ? (element[key].cssText = param[key]) : (element[key] = param[key])
+				   }
+				   return (target || document.body).appendChild(element);
+			   },
 
 /***
  * 根据className获得元素
@@ -165,121 +172,8 @@ animate:	function(props, element, speed){
 					element.style[key] = props[key];
 				}
 
-		},
-
-/***
- * pathPrefix 路径前缀，可以是域名，也可以是路径
- * 例如 domain.com domain.com/static /static 三者都可以，作用是修正css和图片的url,
- * 默认用户使用此插件的时候，不会改变现在的几个文件夹的相对结构;否则请自行修改js代码
- * 如果pathPrefix为空，则直接返回url
- * 否则返回pathPrefix+url,中间去掉可能重复的"/"
- */
-staticUrl:	function(pathPrefix, url){
-				if(pathPrefix !== "" && url.substring(0,4) != "http"){
-					var length = pathPrefix.length;
-					if(pathPrefix[length-1] == "/"){
-						pathPrefix = pathPrefix.substring(0, length-1);
-					}
-
-					if(url[0] == "/"){
-						url = url.substr(1);
-					}
-					return pathPrefix + "/" + url;
-				}else{
-					return url;
-				}
-		},
-/***
- * 生成二维码方法
- * param options传入自定义参数，如长宽和文字等
- * targetEle 目标元素,DOM变量
- */
-generateQR :		 function (options, targetEle) {
-				 // if options is string,
-				 if( typeof options === 'string' ){
-					 options = { text: options };
-				 }
-
-				 // set default values
-				 // typeNumber < 1 for automatic calculation
-				 options = tctipUtil.mergeArray({
-						render      : "canvas",
-						width       : 256,
-						height      : 256,
-						typeNumber  : -1,
-						correctLevel    : QRErrorCorrectLevel.H,
-						background      : "#ffffff",
-						foreground      : "#000000"
-					}, options, true);
-
-				 var createCanvas    = function(){
-					 // create the qrcode itself
-					 var qrcode  = new QRCode(options.typeNumber, options.correctLevel);
-					 qrcode.addData(options.text);
-					 qrcode.make();
-
-					 // create canvas element
-					 var canvas      =   document.createElement('canvas');
-					 canvas.width    =   options.width;
-					 canvas.height   =   options.height;
-					 var ctx     = canvas.getContext('2d');
-
-					 // compute tileW/tileH based on options.width/options.height
-					 var tileW   = options.width  / qrcode.getModuleCount();
-					 var tileH   = options.height / qrcode.getModuleCount();
-
-					 // draw in the canvas
-					 for( var row = 0; row < qrcode.getModuleCount(); row++ ){
-						 for( var col = 0; col < qrcode.getModuleCount(); col++ ){
-							 ctx.fillStyle = qrcode.isDark(row, col) ? options.foreground : options.background;
-							 var w = (Math.ceil((col+1)*tileW) - Math.floor(col*tileW));
-							 var h = (Math.ceil((row+1)*tileW) - Math.floor(row*tileW));
-							 ctx.fillRect(Math.round(col*tileW),Math.round(row*tileH), w, h);
-						 }
-					 }
-					 // return just built canvas
-					 return canvas;
-				 }
-
-				 // from Jon-Carlos Rivera (https://github.com/imbcmdth)
-				 var createTable = function(){
-					 // create the qrcode itself
-					 var qrcode  = new QRCode(options.typeNumber, options.correctLevel);
-					 qrcode.addData(options.text);
-					 qrcode.make();
-
-					 // create table element
-					 var table = document.createElement('table');
-					 table.style.width  = options.width+"px";
-					 table.style.height = options.height+"px";
-					 table.style.border = "0px";
-					 table.style.borderCollapse = "collapse";
-					 table.style.backgroundColor = options.background;
-
-					 // compute tileS percentage
-					 var tileW   = options.width / qrcode.getModuleCount();
-					 var tileH   = options.height / qrcode.getModuleCount();
-
-					 // draw in the table
-					 for(var row = 0; row < qrcode.getModuleCount(); row++ ){
-						 var $row = $table.insertRow(-1);
-						 row.style.height = tileH+"px";
-
-						 for(var col = 0; col < qrcode.getModuleCount(); col++ ){
-							 var $cell = $row.insertCell(-1);
-							 cell.style.width = tileW+"px";
-							 cell.style.backgroundColor =  qrcode.isDark(row, col) ? options.foreground : options.background;
-						 }
-					 }
-					 // return just built canvas
-					 return table;
-				 }
-
-				 var element = options.render == "canvas" ? createCanvas() : createTable();
-				 return  targetEle.insertBefore(element, targetEle.firstChild);
 		}
 };
-
 
 
 /***
@@ -291,28 +185,15 @@ var tctip =  window.tctip || {
 	 * list配置因为较为复杂，单独拆分处理；处理完毕后加入myConfig
 	 */
 	myConfig : {
-		imagePrefix	: "",
-		cssPrefix		: "",
-		/***
-		 * 当staticPrefix不为空的时候,imagePrefix和cssPrefix失效
-		 */
-		staticPrefix	: "",
-		buttonImageId	: "3",
-		buttonTip		: "dashang",
-		cssUrl:	"css/myRewards.css"
+		headText : "喜欢请打赏",
+		siderText: "公告 & 打赏",
+		siderTextTop: "-84px",
+		siderBgcolor: "#323d45",
+		siderTop:"10%",
+        buttomText:"了解更多",
+        buttomLink:"https://github.com/haddyyang/tctip"
 	},
 
-	/***
-	 * list默认配置，需要和用户传入的list整合，并且最后只保留五个
-	 */
-   listConfig:{
-				'alipay'	: 	{icon: "img/alipay.png", name:"支付宝", desc: "支付宝打赏", className: ""},
-				'tenpay'	: 	{icon: "img/tenpay.png", name:"财付通", desc: "财付通打赏", className:""},
-				'weixin'	: 	{icon: "img/weixin.png", name:"微信", desc: "微信打赏", className:""},
-				'bitcoin'	:   {icon: "img/bitcoin.png", name:"比特币", desc: "比特币打赏", className:""},
-				'litecoin'	:   {icon: "img/litecoin.png", name:"莱特币", desc: "莱特币打赏",className:""},
-				'dogecoin'	:   {icon: "img/dogecoin.png", name:"狗狗币", desc: "狗狗币打赏", className:""}
-			},
 	/***
 	 * 根据默认配置和用户自定义配置生成最终使用配置文件
 	 **/
@@ -335,30 +216,6 @@ var tctip =  window.tctip || {
 	 */
 	currentData:	null,
 
-	/**
-	 * 根据imagePrefix和图片url拼接更完整url
-	 * imagePrefix可为""
-	 */
-	imageUrl:	function(url){
-					return tctipUtil.staticUrl(tctip.myConfig.staticPrefix || tctip.myConfig.imagePrefix, url);
-				},
-
-	/***
-	 * 根据cssPrefix和cssurl拼接更完整url
-	 * cssPrefix可为""
-	 */
-	cssUrl:	function(url){
-					return tctipUtil.staticUrl(tctip.myConfig.staticPrefix || tctip.myConfig.cssPrefix, url);
-				},
-	/**
-	 * 生成最左侧button 的Url
-	 */
-	buttonImageUrl: function(){
-						var id = tctip.myConfig.buttonImageId;
-						var tip = tctip.myConfig.buttonTip;
-						return tctip.imageUrl("img/" + tip + "/tab_" + id + ".png");
-				},
-
 	/***
 	 * 计算出配置文件
 	 * **/
@@ -368,11 +225,7 @@ var tctip =  window.tctip || {
 							var num = 0;
 							var hasOn = false;//是否存在显示二维码的list
 							for(var key in tctipConfig.list){
-								if(tctip.listConfig.hasOwnProperty(key)){
-									var one = tctipUtil.mergeArray(tctip.listConfig[key], tctipConfig.list[key], true);
-								}else{
-									var one = tctipConfig.list[key];
-								}
+								var one = tctipConfig.list[key];
 								if(one.className == "myR-on"){
 									hasOn = true;
 								}
@@ -395,6 +248,7 @@ var tctip =  window.tctip || {
 							this.myRewards  = tctipUtil.createElement({
 								id:			"myRewards", 
 								className: "myRewards",
+								style:"top:"+this.myConfig.siderTop+";",
 								onmouseover : function(){
 													tctip.showTctip(this);
 												},
@@ -406,8 +260,13 @@ var tctip =  window.tctip || {
 							this.generateMyRewardsMain();
 						},
 	generateLeftBtn:	function(){
-							this.myRewardsBtn = tctipUtil.createElement({className: "btn-myRewards", href: "javascript:;"}, 'a', this.myRewards);
-							tctipUtil.createElement({className: "png", src: tctip.buttonImageUrl()}, 'img', this.myRewardsBtn);
+							var obj = {className: "btn-myRewards", href: "javascript:;"};
+							obj['style'] = "margin-top:"+tctip.myConfig.siderTextTop+";";
+							this.myRewardsBtn = tctipUtil.createElement(obj, 'a', this.myRewards);
+							var obj = {className: "sider-text"};
+							obj["style"]="background-color:"+tctip.myConfig.siderBgcolor;
+							obj[tctipUtil.getTextKey()] = tctip.myConfig.siderText;
+							tctipUtil.createElement(obj, 'p', this.myRewardsBtn);
 	},
 
 	/***
@@ -432,14 +291,14 @@ var tctip =  window.tctip || {
 	generateMyRewardsMain:	function(){
 							this.myRewardsMain = tctipUtil.createElement({className: "myRewards-main"}, 'div', this.myRewards);
 							var obj = {className: "myR-h"};
-							obj[tctipUtil.getTextKey()] =  "喜欢请打赏";
+							obj[tctipUtil.getTextKey()] = tctip.myConfig.headText;
 							tctipUtil.createElement(obj, 'h1', this.myRewardsMain);
 
 							this.generateMyRewardsbox();
 							
 							var myRewardsBot = tctipUtil.createElement({className: "myR-bot"}, 'p', this.myRewardsMain);
-							obj = {href:"https://github.com/greedying/tctip", target: "_blank"};
-							obj[tctipUtil.getTextKey()] =  "了解更多";
+							obj = {href:tctip.myConfig.buttomLink || "https://github.com/HaddyYang/tctip", target: "_blank"};
+							obj[tctipUtil.getTextKey()] =  tctip.myConfig.buttomText || "了解更多";
 							tctipUtil.createElement(obj, 'a', myRewardsBot);
 	},
 
@@ -492,7 +351,7 @@ var tctip =  window.tctip || {
 											this.currentData = one;
 									}
 
-									tctipUtil.createElement({className: "png", src: tctip.imageUrl(one.icon), alt:one.name}, 'img', a_el);
+									tctipUtil.createElement({className: "png", src: one.icon, alt:one.name}, 'img', a_el);
 								}
 							},
 	generateMyRewardsDetail:function(){
@@ -503,31 +362,26 @@ var tctip =  window.tctip || {
 
 								this.myRewardsUbox = tctipUtil.createElement({className: "myRewards-ubox"},"div", this.myRewardsDetail);
 								var obj = {className: "myRewards-code-tit"};
-								obj[tctipUtil.getTextKey()] =  "扫描二维码打赏";
-								tctipUtil.createElement(obj,"p", this.myRewardsUbox);
-								var myRewardsCode = tctipUtil.createElement({className: "myRewards-code"}, 'div',  this.myRewardsUbox);
-								if(tctip.currentData.hasOwnProperty('qrimg')){
-									tctipUtil.createElement({src: tctip.imageUrl(tctip.currentData.qrimg)}, 'img',  myRewardsCode);
+								if(tctip.currentData.hasOwnProperty('text')){
+									obj[tctipUtil.getTextKey()] =  "最新公告";
+									tctipUtil.createElement(obj,"p", this.myRewardsUbox);
 
-									obj = {className: "myRewards-account"};
-									obj[tctipUtil.getTextKey()] = tctip.currentData.desc || tctip.currentData.name;
-									var myRewardsAccount = tctipUtil.createElement(obj, "p", this.myRewardsUbox);
-								}else if(tctip.currentData.hasOwnProperty('account')){
-									 //生成二维码过程
-									 tctipUtil.generateQR({
-											render  : tctipUtil.isSupportCanvas() ? "canvas" : "table",
-											text    : tctip.currentData.account,
-											width   : 106,
-											height  : 106}, myRewardsCode);
-									/**生成二维码**/
+									var myRewardsCode = tctipUtil.createElement({className: "myRewards-code"}, 'div',  this.myRewardsUbox);
+									obj = {className: "myRewards-text"};
+									obj['innerHTML'] = tctip.currentData.text || tctip.currentData.desc || tctip.currentData.name;
+									var myRewardsAccount = tctipUtil.createElement(obj, "p", myRewardsCode);
 
-									obj = {className: "myRewards-account"};
-									obj[tctipUtil.getTextKey()] = tctip.currentData.desc || tctip.currentData.name;
-									var myRewardsAccount = tctipUtil.createElement(obj, "p", this.myRewardsUbox);
-									obj = {};
-									obj[tctipUtil.getTextKey()] = tctip.currentData.account;
-									tctipUtil.createElement({}, "br", myRewardsAccount);
-									tctipUtil.createElement(obj, "span", myRewardsAccount);
+								}else{
+									obj[tctipUtil.getTextKey()] =  "扫描二维码打赏";
+									tctipUtil.createElement(obj,"p", this.myRewardsUbox);
+									var myRewardsCode = tctipUtil.createElement({className: "myRewards-code"}, 'div',  this.myRewardsUbox);
+									if(tctip.currentData.hasOwnProperty('qrimg')){
+										tctipUtil.createElement({src: tctip.currentData.qrimg}, 'img',  myRewardsCode);
+
+										obj = {className: "myRewards-account"};
+										obj[tctipUtil.getTextKey()] = tctip.currentData.desc || tctip.currentData.name;
+										var myRewardsAccount = tctipUtil.createElement(obj, "p", this.myRewardsUbox);
+									}
 								}
 							},
 /***
@@ -544,26 +398,13 @@ var tctip =  window.tctip || {
 							tctip.generateMyRewardsDetail();
 	},
 
-	/***
-	 * 引入css文件
-	 **/
-	
-	loadCss:	function(){
-						tctipUtil.createElement({type: "text/css",rel: "stylesheet", href: tctip.cssUrl(tctip.myConfig.cssUrl)}, "link");
-				},
-	stat:		function(){
-					tctipUtil.createElement({src: "http://stat.tctip.com/stat/index"}, "script");
-				},
-	
 	init:		function(){
 					if(!document.body){
 						/**判断body是否存在，如果不存在则等待完成**/
 						setTimeout(tctip.init,0);
 					}else{
 						tctip.generateMyConfig();
-						tctip.loadCss();
 						tctip.generateMyRewards();
-						tctip.stat();
 					}
 		}
 };
