@@ -189,7 +189,9 @@ var tctip =  window.tctip || {
 		siderText: "公告 & 打赏",
 		siderTextTop: "-84px",
 		siderBgcolor: "#323d45",
-		siderTop:"10%"
+		siderTop:"10%",
+        buttomText:"了解更多",
+        buttomLink:"https://github.com/haddyyang/tctip"
 	},
 
 	/***
@@ -288,25 +290,16 @@ var tctip =  window.tctip || {
 
 	generateMyRewardsMain:	function(){
 							this.myRewardsMain = tctipUtil.createElement({className: "myRewards-main"}, 'div', this.myRewards);
-							/*添加收起按钮*/
-							/*var obj = {className:"sider-close",
-									   title:"收起(仅触摸屏有效)",
-									   href:"javascript:;",
-									   onclick	: function(){tctip.hideTctip(this);}
-									  };
-							obj[tctipUtil.getTextKey()] = ">>";
-							tctipUtil.createElement(obj, 'a', this.myRewardsMain);*/
-
-							this.myRewardsHead = {className: "myR-h"};
-							this.myRewardsHead[tctipUtil.getTextKey()] = tctip.myConfig.headText;
-							tctipUtil.createElement(this.myRewardsHead, 'h1', this.myRewardsMain);
+							var obj = {className: "myR-h"};
+							obj[tctipUtil.getTextKey()] = tctip.myConfig.headText;
+							tctipUtil.createElement(obj, 'h1', this.myRewardsMain);
 
 							this.generateMyRewardsbox();
 							
 							var myRewardsBot = tctipUtil.createElement({className: "myR-bot"}, 'p', this.myRewardsMain);
-							/*obj = {href:"https://github.com/greedying/tctip", target: "_blank"};
-							obj[tctipUtil.getTextKey()] =  "了解更多";
-							tctipUtil.createElement(obj, 'a', myRewardsBot);*/
+							obj = {href:tctip.myConfig.buttomLink || "https://github.com/HaddyYang/tctip", target: "_blank"};
+							obj[tctipUtil.getTextKey()] =  tctip.myConfig.buttomText || "了解更多";
+							tctipUtil.createElement(obj, 'a', myRewardsBot);
 	},
 
 	generateMyRewardsbox:	function(){

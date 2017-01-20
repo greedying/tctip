@@ -5,11 +5,11 @@
 .myRewards ul,.myRewards li{margin:0;padding:0;}
 .myRewards img{ border:0; display:block;}
 .myRewards a{ color:#000; text-decoration:none; outline:0 none;}
-.myRewards-main{ width:240px; height:322px; font:12px/1.5 "microsoft yahei",tahoma,arial,sans-serif;; color:#000; background-color:#fff; border:1px solid #dbdbdb; border-right:none;}
+.myRewards-main{ width:240px; height:342px; font:12px/1.5 "microsoft yahei",tahoma,arial,sans-serif;; color:#000; background-color:#fff; border:1px solid #dbdbdb; border-right:none;}
 .btn-myRewards{ position:absolute; left:0; top:50%; margin-top:-84px; width:34px; height:93px;}
 .myR-h,.myR-bot{ margin:0; background-color:#e7e7e7;}
 .myRewards-main .myR-h{ padding:0 0 0 6px; font-size:14px; font-weight:normal; background-image:none; padding-left: 1em; height:36px; line-height:36px;}
-.myRewards-main .myR-bot{ padding-right:6px; font-size:12px; text-align:right; height:6px; line-height:6px;}
+.myRewards-main .myR-bot{ padding-right:6px; font-size:12px; text-align:right; height:26px; line-height:26px;}
 .myR-bot a:hover{ text-decoration:underline;}
 .myRewardsbox{ font-size:0; background-color:#eeeeee; width:240px;}
 .myRewards-list{ display:inline-block; *display:inline; *zoom:1; vertical-align:middle; width:90px; font-size:12px;}
@@ -30,8 +30,3 @@
 .i-myRewards{ position:absolute; right:6px; top:16px; width:23px; height:23px; line-height:23px; font-size:14px; color:#44b973; text-align:center; background:url(../img/tab_shang.png) no-repeat;}
 .myRewards-account{ font-size:12px; word-break:break-all; text-align:center;}
 .myRewards .sider-text{ font-size: 20px; text-align: center; background-color: #323d45; margin: 0; padding: 1em 0; border-radius: 12px; border-top-right-radius: 0; border-bottom-right-radius: 0; color: #fff; font-family: 微软雅黑,Tahoma,Verdana,Arial;}
-.myRewards .sider-close{display: none; float: right;font-family: sans-serif;width: 24px;text-align: center;color: #777;font-weight: bold; height: 36px; line-height: 36px;}
-
-@media (max-width: 767px){
-    .myRewards .sider-close{ display: block;}
-}
