@@ -10,6 +10,13 @@ createElement	: function(param, tagName, target) {
 				   }
 				   return (target || document.body).appendChild(element);
 			   },
+createElementHtml:function(param, tagName, target) {
+				   var element = document.createElement(tagName || "div");
+				   for (var key in param) {
+					   key == "style" ? (element[key].cssText = param[key]) : (element[key] = param[key])
+				   }
+				   return (target || document.body).appendChild(element);
+			   },
 
 /***
  * 根据className获得元素
@@ -281,9 +288,18 @@ var tctip =  window.tctip || {
 
 	generateMyRewardsMain:	function(){
 							this.myRewardsMain = tctipUtil.createElement({className: "myRewards-main"}, 'div', this.myRewards);
-							var obj = {className: "myR-h"};
-							obj[tctipUtil.getTextKey()] = tctip.myConfig.headText;
-							tctipUtil.createElement(obj, 'h1', this.myRewardsMain);
+							/*添加收起按钮*/
+							/*var obj = {className:"sider-close",
+									   title:"收起(仅触摸屏有效)",
+									   href:"javascript:;",
+									   onclick	: function(){tctip.hideTctip(this);}
+									  };
+							obj[tctipUtil.getTextKey()] = ">>";
+							tctipUtil.createElement(obj, 'a', this.myRewardsMain);*/
+
+							this.myRewardsHead = {className: "myR-h"};
+							this.myRewardsHead[tctipUtil.getTextKey()] = tctip.myConfig.headText;
+							tctipUtil.createElement(this.myRewardsHead, 'h1', this.myRewardsMain);
 
 							this.generateMyRewardsbox();
 							
@@ -359,7 +375,7 @@ var tctip =  window.tctip || {
 
 									var myRewardsCode = tctipUtil.createElement({className: "myRewards-code"}, 'div',  this.myRewardsUbox);
 									obj = {className: "myRewards-text"};
-									obj[tctipUtil.getTextKey()] = tctip.currentData.text || tctip.currentData.desc || tctip.currentData.name;
+									obj['innerHTML'] = tctip.currentData.text || tctip.currentData.desc || tctip.currentData.name;
 									var myRewardsAccount = tctipUtil.createElement(obj, "p", myRewardsCode);
 
 								}else{

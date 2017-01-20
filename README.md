@@ -7,7 +7,7 @@ tctip
 * 去掉静态文件的相对路径设置，直接使用静态文件的路径
 * 去掉图片设置的样式，采用css，减小插件的大小
 
-* 添加公告栏形式的内容
+* 添加公告栏形式的内容(支持html代码)
 * 添加侧边栏文本可配置项
 * 添加侧边栏文本背景颜色可配置项
 * 添加侧边栏文本高度可配置项
@@ -36,7 +36,7 @@ tctip的目的是提供一个方面的工具，让用户对网站优质内容打
 所以比较适合的网站是**具有优质内容的网站**，比如**科技博客**，**问答网站**等等
 
 ##tctip提供哪些打赏方式？
-	只有可以二维码扫码就支持
+	只要可以二维码扫码就支持
 
 ##如何使用和部署tctip(该部分的配置和原作者不一样)
 	网站站长可以将tctip的所有静态文件拷贝到自己服务器使用  
@@ -61,7 +61,7 @@ tctip的目的是提供一个方面的工具，让用户对网站优质内容打
 
             //显示项
             list:{
-                notice: {icon: "img/icon/tip.png", name:"公告栏", className:"myR-on", text: "这是公告内容,这是公告内容,这是公告内容,这是公告内容,这是公告内容,这是公告内容,这是公告内容"},
+                notice: {icon: "img/icon/tip.png", name:"公告栏", className:"myR-on", text: '这是公告内容,这是公告内容,这是公告内容,<b style="color:red;">这是公告内容</b>,这是公告内容,这是公告内容,这是公告内容'},
                 alipay: {icon: "img/icon/alipay.png", name:"支付宝", desc: "支付宝打赏", qrimg: "img/qr/alipayqr.png"},
                 weixin: {icon: "img/icon/weixin.png", name:"微信", desc: "微信打赏", qrimg: "img/qr/alipayqr.png"}	
             }

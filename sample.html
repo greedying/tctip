@@ -16,7 +16,7 @@
 		<li>去掉静态文件的相对路径设置，直接使用静态文件的路径</li>
 		<li>去掉图片设置的样式，采用css，减小插件的大小</li>
         <br>
-        <li>添加公告栏形式的内容</li>
+        <li>添加公告栏形式的内容(支持html代码)</li>
 		<li>添加侧边栏文本可配置项</li>
 		<li>添加侧边栏文本背景颜色可配置项</li>
 		<li>添加侧边栏文本高度可配置项</li>
@@ -62,7 +62,7 @@
                     className可以为空，或者传入myR-on；默认显示项。
         	**/
             list:{
-                notice: {icon: "img/icon/tip.png", name:"公告栏", className:"myR-on", text: "这是公告内容,这是公告内容,这是公告内容,这是公告内容,这是公告内容,这是公告内容,这是公告内容"},
+                notice: {icon: "img/icon/tip.png", name:"公告栏", className:"myR-on", text: '这是公告内容,这是公告内容,这是公告内容,这是公告内容<br><b style="color:red;">这是公告内容</b>,这是公告内容,这是公告内容'},
                 alipay: {icon: "img/icon/alipay.png", name:"支付宝", desc: "给原项目作者“tctip”\n用支付宝打赏", qrimg: "img/qr/alipayqr.png"},
                 weixin: {icon: "img/icon/weixin.png", name:"微信", desc: "给该项目作者“仕航”\n用微信打赏", qrimg: "img/qr/weixin.jpg"}	
             }
