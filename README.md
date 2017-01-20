@@ -12,6 +12,7 @@ tctip
 * 添加侧边栏文本背景颜色可配置项
 * 添加侧边栏文本高度可配置项
 * 添加最上面文本可配置项
+* 添加整个侧边栏高度可配置项
 
 简而言之，简化、优化并添加配置项。
 
@@ -48,14 +49,17 @@ tctip的目的是提供一个方面的工具，让用户对网站优质内容打
 	<script>
         window.tctipConfig = {
             //最上面的文字
-        	headText: "欢迎打赏支持我 ^_^",
-        	//侧边栏文本
-        	siderText: "公告 & 打赏",
-        	//侧边栏文本高度调整
-        	siderTextTop: -84,
-        	//侧边栏背景颜色
-        	siderBgcolor: "#323d45",
+            headText: "欢迎打赏支持我 ^_^",
+            //侧边栏文本
+            siderText: "公告 & 打赏",
+            //侧边栏文本高度调整
+            siderTextTop: "-84px",
+            //侧边栏背景颜色
+            siderBgcolor: "#323d45",
+            //整个侧边栏的高度设置可以px，em，或百分比
+            siderTop:"129px",
 
+            //显示项
             list:{
                 notice: {icon: "img/icon/tip.png", name:"公告栏", className:"myR-on", text: "这是公告内容,这是公告内容,这是公告内容,这是公告内容,这是公告内容,这是公告内容,这是公告内容"},
                 alipay: {icon: "img/icon/alipay.png", name:"支付宝", desc: "支付宝打赏", qrimg: "img/qr/alipayqr.png"},
@@ -68,7 +72,7 @@ tctip的目的是提供一个方面的工具，让用户对网站优质内容打
 	更详细的使用说明请参阅**sample.html**中的示例和注解
 
 ##联系方式
-作者并非专业js人员，所写代码不足之处颇多  
+由于原作者和本项目作者并非专业js人员，所写代码会有不足之处
 且本职工作较为繁忙，所以功能上也有很多亟待补充的地方  
 进一步交流，欢迎加入qq群`188087193`
 

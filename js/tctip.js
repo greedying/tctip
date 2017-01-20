@@ -180,8 +180,9 @@ var tctip =  window.tctip || {
 	myConfig : {
 		headText : "喜欢请打赏",
 		siderText: "公告 & 打赏",
-		siderTextTop: -84,
-		siderBgcolor: "#323d45"
+		siderTextTop: "-84px",
+		siderBgcolor: "#323d45",
+		siderTop:"10%"
 	},
 
 	/***
@@ -238,6 +239,7 @@ var tctip =  window.tctip || {
 							this.myRewards  = tctipUtil.createElement({
 								id:			"myRewards", 
 								className: "myRewards",
+								style:"top:"+this.myConfig.siderTop+";",
 								onmouseover : function(){
 													tctip.showTctip(this);
 												},
@@ -250,7 +252,7 @@ var tctip =  window.tctip || {
 						},
 	generateLeftBtn:	function(){
 							var obj = {className: "btn-myRewards", href: "javascript:;"};
-							obj['style'] = "margin-top:"+tctip.myConfig.siderTextTop+"px;";
+							obj['style'] = "margin-top:"+tctip.myConfig.siderTextTop+";";
 							this.myRewardsBtn = tctipUtil.createElement(obj, 'a', this.myRewards);
 							var obj = {className: "sider-text"};
 							obj["style"]="background-color:"+tctip.myConfig.siderBgcolor;
