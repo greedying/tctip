@@ -1,75 +1,74 @@
-tctip
+tctip项目介绍
 ========
 
 ##tctip是什么？
-tctip是一款js的插件  
-用户通过插件扫描二维码或者复制账号，对网站的优质内容进行打赏  
+
+tctip是一款js打赏插件
+部署后在网站右侧中间位置生成一个打赏区域    
+用户通过插件扫描二维码进行打赏  
 
 ##tcitp现在有哪些网站使用？
-以下是一些早期用户，感谢他们在项目早期的支持
-	* http://joway.wang/message.html
-	* http://www.11what.com/
-	* http://www.axhmei.com/
-	* http://blog.liuyang.cf
+以下是一些早期用户，感谢他们在项目早期的支持    
 
-流程大体如下：
-**网站部署tctip**->**生成打赏侧边栏**->**用户扫描二维码**->**网站获得奖赏**
+* http://joway.wang/message.html  
+* http://www.11what.com/  
+* http://www.axhmei.com/  
+* http://blog.liuyang.cf  
 
-##tctip适用于什么样的网站？
-tctip的目的是提供一个方面的工具，让用户对网站优质内容打赏
-所以比较适合的网站是**具有优质内容的网站**，比如**科技博客**，**问答网站**等等
+##使用流程
+
+1. 网站部署tctip
+2. 生成打赏侧边栏
+3. 用户扫描二维码
+4. 网站获得奖赏
+
+##适用网站
+
++ 个人博客  
++ 问答网站 
++ 其他你觉得合适的网站  
+
 
 ##tctip提供哪些打赏方式？
-	tctip默认提供支付宝，财付通，微信，比特币，莱特币等方式  
-	但网站主也可自定义支付方式，此时需要配置icon图标和描述字段
-###支付宝的使用说明
-	* 您可以直接在配置文件中传入支付宝账号,插件会自动生成二维码,但是推荐下面一种
-	* 您也可以登录支付宝，打开https://qr.alipay.com/paipai/personal.htm，保存网页上的收款二维码，然后将地址作为qrimg参数传入,这样别人扫描此二维码将直接使用支付宝快捷支付
-###微信使用说明
-	* 直接传入微信账号，微信扫描的时候似乎不能付款，因此微信需要您传入qrimg二维码图片，见下面
-	* 打开 **微信**->**我**->**钱包**->**转账**->**面对面收钱**，然后长按保存到手机，将图片裁剪后上传到您的服务器，将url作为qrimg参数传入即可
-###财付通使用说明
-	* 待补充
-###比特币莱特币使用说明
-	* 因为没法确定用户使用的是哪种虚拟货币工具，因此推荐直接传入虚拟货币地址；无论用户使用何种工具，都可以扫描二维码或者复制地址进行打赏
-###其他打赏方式说明
-	* 还有很多存在但是没有作为默认的备选方式，如果需要使用，参考sample.html进行配置即可
-	* 需要注意的是，此时需要传入icon地址，以进行合理的显示
++ 支付宝，默认提供
++ 财付通, 默认提供
++ 微信，默认提供
++ 比特币，默认提供
++ 来特币，默认提供
++ 其他，可自定义，需要在配置中提供icon图标地址和描述字段
 
 
 ##如何使用和部署tctip？
-	网站站长可以将tctip的所有静态文件拷贝到自己服务器使用  
-	也可以使用作者提供的静态文件库，此时staticPath需要设置为`http://static.tctip.com`,网站主不需要下载任何文件即可以使用插件  
 
-	但无论使用何处的静态文件，网站长都需要将类似如下的js放到网页内
-	**我们推荐将如下js放到 `</body>`之前，以保证最好的兼容性
+将以下js代码放到网页结尾，一般是放到`</body>`之前，以保证最好的兼容性
 
-	```javascript
-	<script>
-	window.tctipConfig = {
-			staticPrefix:   "http://static.tctip.com",
-			buttonImageId:  1,
-			buttonTip:	"zanzhu",
-			list:{
-		 		alipay: {qrimg: "http://tctip.com/img/alipayqr.png"},
-		 		weixin:{qrimg: "http://littlebtc.com/images/yeshen.png"},
-			}
-	};
-	</script>
-	<script src="http://static.tctip.com/js/tctip.min.js"></script>
-	```
-	更详细的使用说明请参阅**sample.html**中的示例和注解
+```javascript
+<script>
+window.tctipConfig = {
+  staticPrefix: 'http://static.tctip.com',
+  buttonImageId: 1,
+  buttonTip: 'zanzhu',
+  list:{
+	alipay: {
+      qrimg: 'http://tctip.com/img/alipayqr.png'
+    },
+	weixin: {
+      qrimg: 'http://littlebtc.com/images/yeshen.png'
+    }
+  }
+}
+</script>
+<script src="http://static.tctip.com/js/tctip.min.js"></script>
+```
+更详细的使用说明请参阅**sample.html**中的示例和注解
 
 ##有没有办法预览插件效果图？
 example_pic文件夹内有各大网站使用插件的效果截图
 您也可以提供网址，作者提供效果截图
-如有需要请加群`188087193`联系群主
 
 ##联系方式
-作者并非专业js人员，所写代码不足之处颇多  
-且本职工作较为繁忙，所以功能上也有很多亟待补充的地方  
 进一步交流，欢迎加入qq群`188087193`
 
 ##最后的最后
-	如果您觉得本插件对您有所帮助，欢迎对sample.html中任意一种支付方式的二维码进行打赏，不尽感激
-	如果您愿意为项目的发展提供长期的帮助或者合作，请联系作者
+* 作者并非专业js人员，所写代码不足之处颇多，欢迎PR
+* 如果您觉得本插件对您有所帮助，欢迎打赏作者
