@@ -166,7 +166,9 @@ tctip是一个js插件，作用是在web网页右侧生成一个打赏浮动窗
 下面是部分使用的网站，排序方式为随机，筛选标准为网站和文章质量  
 `本名单随时更改，可能添加，也可能移除`
 
-+ [http://greedying.com/](我的博客)
+### 独立网站
+
++ [我的博客](http://greedying.com/)
 + http://mc.xlver.com/
 + http://www.codedq.net/
 + http://www.openauth.me
@@ -179,10 +181,7 @@ tctip是一个js插件，作用是在web网页右侧生成一个打赏浮动窗
 + http://www.btcfei.com/
 + http://www.foolrabbit.cn/
 
-
-
-
-
+### cnblogs 博客
 
 + http://best.cnblogs.com/
 + http://studyzy.cnblogs.com/
