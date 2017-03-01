@@ -195,6 +195,9 @@ tctip是一个js插件，作用是在web网页右侧生成一个打赏浮动窗
 + http://liuhaorain.cnblogs.com/
 + http://wangyulong.cnblogs.com/
 
+### 网友修改后使用版本(PS，欢迎PR)
++ http://yshblog.com/
+
 
 ## qq群
 + qq群号：`188087193`
