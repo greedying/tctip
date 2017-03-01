@@ -159,6 +159,7 @@ tctip是一个js插件，作用是在web网页右侧生成一个打赏浮动窗
 ## 感谢与参考
 
 + [qrcode-generator](https://github.com/kazuhikoarase/qrcode-generator)
++ [webpack-library-starter](https://github.com/krasimir/webpack-library-starter)
 
 ## 案例收集
 您可以[点此填写](https://github.com/greedying/tctip/issues/8)，我会定期整理  
