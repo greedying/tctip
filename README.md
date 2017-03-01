@@ -17,6 +17,10 @@ tctip是一个js插件，作用是在web网页右侧生成一个打赏浮动窗
 + 只需引入一个js文件，不需要额外引入js、css等
 + 同时支持`umd`、`webpack`等方法使用
 
+## demo
++ 您可以到`demo`目录查看简单demo
++ 在线demo，则[点此查看](https://github.com/looknd/tctip)
+
 ## 使用方法
 
 ### 页面使用（多数人的使用方式)
@@ -157,8 +161,41 @@ tctip是一个js插件，作用是在web网页右侧生成一个打赏浮动窗
 + [qrcode-generator](https://github.com/kazuhikoarase/qrcode-generator)
 
 ## 案例收集
-+ 您可以[点此填写](https://github.com/greedying/tctip/issues/8)，我会定期整理
-+ 您也可以直接clone项目，提交PR
+您可以[点此填写](https://github.com/greedying/tctip/issues/8)，我会定期整理  
+您也可以直接clone项目，提交PR  
+下面是部分使用的网站，排序方式为随机，筛选标准为网站和文章质量  
+`本名单随时更改，可能添加，也可能移除`
+
++ [http://greedying.com/](我的博客)
++ http://mc.xlver.com/
++ http://www.codedq.net/
++ http://www.openauth.me
++ http://www.orchardcn.org/
++ http://liujians.me/
++ http://blog.lishewen.com/
++ http://blog.fundzt.com/
++ http://cio.anasit.com/
++ http://cnxc110.com/
++ http://www.btcfei.com/
++ http://www.foolrabbit.cn/
+
+
+
+
+
+
++ http://best.cnblogs.com/
++ http://studyzy.cnblogs.com/
++ http://fzrain.cnblogs.com/
++ http://artech.cnblogs.com/
++ http://neverc.cnblogs.com
++ http://tuyile006.cnblogs.com/
++ http://farb.cnblogs.com/
++ http://edisonchou.cnblogs.com/
++ http://tunwa.cnblogs.com/
++ http://liuhaorain.cnblogs.com/
++ http://wangyulong.cnblogs.com/
+
 
 ## qq群
 + qq群号：`188087193`
