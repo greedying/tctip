@@ -1,5 +1,1 @@
-Thumbs.db
-.DS_Store
-node_modules/
-npm-debug.log
-*.swp
+node_modules

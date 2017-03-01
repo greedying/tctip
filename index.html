@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>tctip demo</title>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="baidu-site-verification" content="MhgrTGPkup" /> <!-- 百度验证-->
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<script type="text/javascript" src="http://static.tctip.com/tctip-1.0.0.min.js"></script>
+<script>
+  new tctip({
+    top: '20%',
+    button: {
+      id: 9,
+      type: 'zanzhu',
+    },
+    list: [
+      {
+        type: 'alipay',
+        qrImg: './images/alipay.jpg'
+      }, {
+        type: 'wechat',
+        qrImg: './images/wechat.jpg'
+      }, {
+        type: 'bitcoin',
+        qrContent: '1PhQySHF1ZuoRwoZ8G4CDLEtE6fAnD3GJP'
+      }
+    ]
+  }).init()
+</script>
+</head>
+<body>
+</body>
+</html>
