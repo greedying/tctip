@@ -3,7 +3,6 @@
  * **/
 .tctip {
   position: fixed; 
-  _position: absolute; 
   right:0; 
   z-index: 10000; 
   padding-left: 34px; 
@@ -37,9 +36,9 @@
     font: 12px/1.5 "microsoft yahei",tahoma,arial,sans-serif;
     color: #000;
     background-color: #fff; 
-    border:1px solid #dbdbdb; 
+    border: 1px solid #dbdbdb; 
     border-right:none;
-    .tctip-title,.tctip-footer { 
+    .tctip-title, .tctip-footer { 
       margin: 0; 
       height: 26px; 
       line-height: 26px; 
@@ -49,7 +48,7 @@
       padding: 0 0 0 6px; 
       font-size: 14px; 
       font-weight: normal; 
-      background-image:none;
+      background-image: none;
     }
     .tctip-footer { 
       padding-right: 6px; 
@@ -57,7 +56,7 @@
       text-align: right;
       a { 
         &:hover {
-          text-decoration:underline;
+          text-decoration: underline;
         }
       }
     }
@@ -67,8 +66,6 @@
       width: 240px;
       .tctip-icon-box { 
         display: inline-block; 
-        *display: inline; 
-        *zoom: 1; 
         vertical-align: middle; 
         width: 90px; 
         font-size: 12px;
@@ -83,7 +80,6 @@
           li { 
             display: block; 
             height: 56px; 
-            -webkit-transition: background-color .2s linear; 
             transition: background-color .2s linear;
             &.tctip-current { 
               border-right: none;
@@ -115,8 +111,6 @@
       }
       .tctip-qr-detail { 
         display: inline-block; 
-        *display: inline; 
-        *zoom: 1; 
         vertical-align: middle; 
         width: 150px; 
         height: 280px; 
@@ -137,7 +131,8 @@
             padding: 12px; 
             width: 106px; 
             height: 106px; 
-            background: url(../img/border.jpg) no-repeat; box-sizing: content-box;
+            background: url(../img/border.jpg) no-repeat; 
+            box-sizing: content-box;
             img { 
               width: 106px; 
               height: 106px;

@@ -13,7 +13,9 @@ class Tctip extends BaseDom {
   genDom () {
     this.createDom({
       className: 'tctip',
-      style: `top: ${this.config.top}`,
+      style: {
+        top: this.config.top
+      },
       onmouseover: () => {
         this.show()
       },

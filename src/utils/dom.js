@@ -17,9 +17,13 @@ function ready (callback) {
 function createElement (params, tagName) {
   let element = document.createElement(tagName || 'div')
   for (let key in params) {
-    key === 'style'
-    ? element[key].cssText = params[key]
-    : element[key] = params[key]
+    if (key !== 'style') {
+      element[key] = params[key]
+    } else {
+      for (let csskey in params[key]) {
+        element.style[csskey] = params[key][csskey]
+      }
+    }
   }
   return element
 }

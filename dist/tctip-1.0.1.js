@@ -316,7 +316,7 @@ module.exports = exports['default'];
 
 module.exports = {
 	"name": "tctip",
-	"version": "1.0.1",
+	"version": "1.0.2",
 	"description": "在页面右侧生成打赏界面的开源js插件",
 	"main": "dist/tctip-1.0.1.min.js",
 	"scripts": {
@@ -342,6 +342,7 @@ module.exports = {
 		"less": "^2.7.2",
 		"less-loader": "^2.2.3",
 		"mocha": "2.3.4",
+		"postcss-loader": "^1.3.3",
 		"style-loader": "^0.13.2",
 		"url-loader": "^0.5.8",
 		"webpack": "2.2.1",
@@ -358,7 +359,7 @@ module.exports = {
 		"插件library",
 		"javascript"
 	],
-	"author": "greedying <greedying@qq.com>",
+	"author": "greedying <greedying@163.com>",
 	"license": "MIT",
 	"bugs": {
 		"url": "https://github.com/greedying/tctip/issues"
@@ -686,8 +687,8 @@ if(content.locals) module.exports = content.locals;
 if(false) {
 	// When the styles change, update the <style> tags
 	if(!content.locals) {
-		module.hot.accept("!!../../../node_modules/css-loader/index.js!../../../node_modules/less-loader/index.js!./tctip.less", function() {
-			var newContent = require("!!../../../node_modules/css-loader/index.js!../../../node_modules/less-loader/index.js!./tctip.less");
+		module.hot.accept("!!../../../node_modules/css-loader/index.js!../../../node_modules/postcss-loader/index.js!../../../node_modules/less-loader/index.js!./tctip.less", function() {
+			var newContent = require("!!../../../node_modules/css-loader/index.js!../../../node_modules/postcss-loader/index.js!../../../node_modules/less-loader/index.js!./tctip.less");
 			if(typeof newContent === 'string') newContent = [[module.id, newContent, '']];
 			update(newContent);
 		});
@@ -1655,7 +1656,7 @@ exports = module.exports = __webpack_require__(19)();
 
 
 // module
-exports.push([module.i, ".tctip{position:fixed;_position:absolute;right:0;z-index:10000;padding-left:34px;width:0;overflow:hidden;box-sizing:content-box}.tctip li,.tctip ul{margin:0;padding:0}.tctip img{border:0;display:block}.tctip a{color:#000;text-decoration:none;outline:0 none}.tctip .tctip-btn-box{position:absolute;left:0;top:50%;margin-top:-46px;width:34px;height:93px}.tctip .tctip-main-box{width:240px;height:332px;font:12px/1.5 microsoft yahei,tahoma,arial,sans-serif;color:#000;background-color:#fff;border:1px solid #dbdbdb;border-right:none}.tctip .tctip-main-box .tctip-footer,.tctip .tctip-main-box .tctip-title{margin:0;height:26px;line-height:26px;background-color:#e7e7e7}.tctip .tctip-main-box .tctip-title{padding:0 0 0 6px;font-size:14px;font-weight:400;background-image:none}.tctip .tctip-main-box .tctip-footer{padding-right:6px;font-size:12px;text-align:right}.tctip .tctip-main-box .tctip-footer a:hover{text-decoration:underline}.tctip .tctip-main-box .tctip-body-box{font-size:0;background-color:#eee;width:240px}.tctip .tctip-main-box .tctip-body-box .tctip-icon-box{display:inline-block;*display:inline;*zoom:1;vertical-align:middle;width:90px;font-size:12px}.tctip .tctip-main-box .tctip-body-box .tctip-icon-box ul{list-style:none}.tctip .tctip-main-box .tctip-body-box .tctip-icon-box ul a.fifth{border-bottom:none}.tctip .tctip-main-box .tctip-body-box .tctip-icon-box ul.not-full{border-top:1px solid #dfdfdf}.tctip .tctip-main-box .tctip-body-box .tctip-icon-box ul li{display:block;height:56px;-webkit-transition:background-color .2s linear;transition:background-color .2s linear}.tctip .tctip-main-box .tctip-body-box .tctip-icon-box ul li.tctip-current{border-right:none}.tctip .tctip-main-box .tctip-body-box .tctip-icon-box ul li.tctip-current a,.tctip .tctip-main-box .tctip-body-box .tctip-icon-box ul li.tctip-current a:hover{background-color:#fff}.tctip .tctip-main-box .tctip-body-box .tctip-icon-box ul li a{position:relative;display:block;padding-left:40px;height:55px;line-height:55px;font-size:12px;border-bottom:1px solid #ccc}.tctip .tctip-main-box .tctip-body-box .tctip-icon-box ul li a img{position:absolute;left:6px;top:13px;width:30px;height:30px}.tctip .tctip-main-box .tctip-body-box .tctip-qr-detail{display:inline-block;*display:inline;*zoom:1;vertical-align:middle;width:150px;height:280px;font-size:12px;background-color:#fff}.tctip .tctip-main-box .tctip-body-box .tctip-qr-detail .tctip-qr-box{padding:14px 0 0 10px}.tctip .tctip-main-box .tctip-body-box .tctip-qr-detail .tctip-qr-box .tctip-qr-title{margin:0 0 20px;width:132px;height:30px;line-height:30px;font-size:12px;text-align:center}.tctip .tctip-main-box .tctip-body-box .tctip-qr-detail .tctip-qr-box .tctip-qr-code{margin:0 0 20px;padding:12px;width:106px;height:106px;background:url(" + __webpack_require__(23) + ") no-repeat;box-sizing:content-box}.tctip .tctip-main-box .tctip-body-box .tctip-qr-detail .tctip-qr-box .tctip-qr-code img{width:106px;height:106px}.tctip .tctip-main-box .tctip-body-box .tctip-qr-detail .tctip-qr-box .tctip-qr-desc{font-size:12px;word-break:break-all;text-align:center}", ""]);
+exports.push([module.i, ".tctip{position:fixed;right:0;z-index:10000;padding-left:34px;width:0;overflow:hidden;box-sizing:content-box}.tctip li,.tctip ul{margin:0;padding:0}.tctip img{border:0;display:block}.tctip a{color:#000;text-decoration:none;outline:0 none}.tctip .tctip-btn-box{position:absolute;left:0;top:50%;margin-top:-46px;width:34px;height:93px}.tctip .tctip-main-box{width:240px;height:332px;font:12px/1.5 microsoft yahei,tahoma,arial,sans-serif;color:#000;background-color:#fff;border:1px solid #dbdbdb;border-right:none}.tctip .tctip-main-box .tctip-footer,.tctip .tctip-main-box .tctip-title{margin:0;height:26px;line-height:26px;background-color:#e7e7e7}.tctip .tctip-main-box .tctip-title{padding:0 0 0 6px;font-size:14px;font-weight:400;background-image:none}.tctip .tctip-main-box .tctip-footer{padding-right:6px;font-size:12px;text-align:right}.tctip .tctip-main-box .tctip-footer a:hover{text-decoration:underline}.tctip .tctip-main-box .tctip-body-box{font-size:0;background-color:#eee;width:240px}.tctip .tctip-main-box .tctip-body-box .tctip-icon-box{display:inline-block;*display:inline;*zoom:1;vertical-align:middle;width:90px;font-size:12px}.tctip .tctip-main-box .tctip-body-box .tctip-icon-box ul{list-style:none}.tctip .tctip-main-box .tctip-body-box .tctip-icon-box ul a.fifth{border-bottom:none}.tctip .tctip-main-box .tctip-body-box .tctip-icon-box ul.not-full{border-top:1px solid #dfdfdf}.tctip .tctip-main-box .tctip-body-box .tctip-icon-box ul li{display:block;height:56px;-webkit-transition:background-color .2s linear;transition:background-color .2s linear}.tctip .tctip-main-box .tctip-body-box .tctip-icon-box ul li.tctip-current{border-right:none}.tctip .tctip-main-box .tctip-body-box .tctip-icon-box ul li.tctip-current a,.tctip .tctip-main-box .tctip-body-box .tctip-icon-box ul li.tctip-current a:hover{background-color:#fff}.tctip .tctip-main-box .tctip-body-box .tctip-icon-box ul li a{position:relative;display:block;padding-left:40px;height:55px;line-height:55px;font-size:12px;border-bottom:1px solid #ccc}.tctip .tctip-main-box .tctip-body-box .tctip-icon-box ul li a img{position:absolute;left:6px;top:13px;width:30px;height:30px}.tctip .tctip-main-box .tctip-body-box .tctip-qr-detail{display:inline-block;*display:inline;*zoom:1;vertical-align:middle;width:150px;height:280px;font-size:12px;background-color:#fff}.tctip .tctip-main-box .tctip-body-box .tctip-qr-detail .tctip-qr-box{padding:14px 0 0 10px}.tctip .tctip-main-box .tctip-body-box .tctip-qr-detail .tctip-qr-box .tctip-qr-title{margin:0 0 20px;width:132px;height:30px;line-height:30px;font-size:12px;text-align:center}.tctip .tctip-main-box .tctip-body-box .tctip-qr-detail .tctip-qr-box .tctip-qr-code{margin:0 0 20px;padding:12px;width:106px;height:106px;background:url(" + __webpack_require__(23) + ") no-repeat;box-sizing:content-box}.tctip .tctip-main-box .tctip-body-box .tctip-qr-detail .tctip-qr-box .tctip-qr-code img{width:106px;height:106px}.tctip .tctip-main-box .tctip-body-box .tctip-qr-detail .tctip-qr-box .tctip-qr-desc{font-size:12px;word-break:break-all;text-align:center}", ""]);
 
 // exports
 
