@@ -20,7 +20,7 @@ tctip是一个js插件，作用是在web网页右侧生成一个打赏浮动窗
 
 ## demo
 + 您可以到`demo`目录查看简单demo
-+ 在线demo，则[点此查看](https://github.com/looknd/tctip)
++ 在线demo，则[点此查看](http://greedying.com/tctip/)
 
 ## 使用方法
 
