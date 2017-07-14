@@ -71,7 +71,7 @@ tctip是一个js插件，作用是在web网页右侧生成一个打赏浮动窗
 #### 第一步，安装
 
 ```javascript
-  npm install vux-uploader --save
+  npm install tctip --save
 ```
 
 #### 第二步，引入包
