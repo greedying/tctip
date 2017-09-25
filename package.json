@@ -1,6 +1,6 @@
 {
   "name": "tctip",
-  "version": "1.0.2",
+  "version": "1.0.3",
   "description": "在页面右侧生成打赏界面的开源js插件",
   "main": "dist/tctip-1.0.1.min.js",
   "scripts": {
