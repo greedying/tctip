@@ -7,9 +7,12 @@ class BtnBox extends BaseDom {
     this.genDom()
   }
 
-  genDom () {
+  genDom (BaseDom) {
     this.createDom({
       className: 'tctip-btn-box',
+      onclick() {
+        parentDom.dom.style.width == '240px' ? parentDom.hide() : parentDom.show();
+      },
       href: 'javascript:;'
     }, 'a')
 

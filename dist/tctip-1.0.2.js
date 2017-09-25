@@ -1343,15 +1343,18 @@ var BtnBox = function (_BaseDom) {
     var _this = _possibleConstructorReturn(this, (BtnBox.__proto__ || Object.getPrototypeOf(BtnBox)).call(this, config, parentDom));
 
     _this._button = undefined;
-    _this.genDom();
+    _this.genDom(parentDom);
     return _this;
   }
 
   _createClass(BtnBox, [{
     key: 'genDom',
-    value: function genDom() {
+    value: function genDom(parentDom) {
       this.createDom({
         className: 'tctip-btn-box',
+        onclick() {
+          parentDom.dom.style.width == '240px' ? parentDom.hide() : parentDom.show();
+        },
         href: 'javascript:;'
       }, 'a');
 
