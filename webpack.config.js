@@ -45,11 +45,20 @@ const config = {
       },
       { 
         test: /\.css$/, 
-        loader: "style-loader!css-loader!postcss-loader"
+        use: [
+          'style-loader',
+          { loader: 'css-loader', options: { modules: true, importLoaders: 1 } },
+          'postcss-loader' 
+        ]
       },
       { 
         test: /\.less$/, 
-        loader: "style-loader!css-loader!postcss-loader!less-loader"
+        use: [
+          'style-loader',
+          { loader: 'css-loader', options: { modules: true, importLoaders: 1 } },
+          'postcss-loader',
+          'less-loader'
+        ]
       },
       {
       　test: /\.(png|jpg|gif)$/,

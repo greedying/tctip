@@ -2,7 +2,7 @@
   "name": "tctip",
   "version": "1.0.2",
   "description": "在页面右侧生成打赏界面的开源js插件",
-  "main": "dist/tctip-1.0.1.min.js",
+  "main": "dist/tctip-1.0.2.min.js",
   "scripts": {
     "build": "webpack --env build",
     "dev": "webpack --progress --colors --watch --env dev",
