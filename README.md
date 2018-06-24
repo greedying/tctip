@@ -29,13 +29,13 @@ tctip是一个js插件，作用是在web网页右侧生成一个打赏浮动窗
 #### 第一步，引入js
    
    一般引入min版本，即引入`tctip-版本号.min.js`文件  
-   在当前项目中即`dist/tctip-1.0.1.min.js`
+   在当前项目中即`dist/tctip-1.0.3.min.js`
 
 + 您可以把此js文件下载到您的服务器合适目录进行引用
-+ 您也可以直接使用我提供的静态链接`http://static.tctip.com/tctip-1.0.1.min.js`
++ 您也可以直接使用我提供的静态链接`http(s)://static.tctip.com/tctip-1.0.3.min.js`
 
 ```javascript
-  <script src="http://static.tctip.com/tctip-1.0.1.min.js"></script>
+  <script src="//static.tctip.com/tctip-1.0.3.min.js"></script>
 
 ```
 
@@ -196,6 +196,7 @@ tctip是一个js插件，作用是在web网页右侧生成一个打赏浮动窗
 + http://tunwa.cnblogs.com/
 + http://liuhaorain.cnblogs.com/
 + http://wangyulong.cnblogs.com/
++ http://hafiz.cnblogs.com/
 
 ### 网友修改后使用版本(PS，欢迎PR)
 + http://yshblog.com/
