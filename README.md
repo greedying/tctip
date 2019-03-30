@@ -201,6 +201,9 @@ tctip是一个js插件，作用是在web网页右侧生成一个打赏浮动窗
 + http://hafiz.cnblogs.com/
 + http://www.cnblogs.com/LittleHann/
 
+### csdn
++ https://blog.csdn.net/xiaosongshine/article/details/88861445
+
 ### 网友修改后使用版本(PS，欢迎PR)
 + http://yshblog.com/
 + http://www.wanmeiyunjiao.com/ 
